@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:oson_apteka/src/appTheme/app_theme.dart';
+import 'package:oson_apteka/src/ui/error/error_screen.dart';
 import 'package:oson_apteka/src/utils/utils.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -136,27 +137,39 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           ),
-          Container(
-            height: 48 * h,
-            width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.only(
-              left: 32 * w,
-              right: 32 * w,
-            ),
-            decoration: BoxDecoration(
-              color: isNext ? AppTheme.blue : AppTheme.dark40,
-              borderRadius: BorderRadius.circular(12 * o),
-            ),
-            child: Center(
-              child: Text(
-                "Войти",
-                style: TextStyle(
-                  color: AppTheme.grey,
-                  fontSize: 16 * o,
-                  fontFamily: AppTheme.fontFamilyGilroy,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.normal,
-                  height: 19 / 16 * h,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const ErrorScreen();
+                  },
+                ),
+              );
+            },
+            child: Container(
+              height: 48 * h,
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.only(
+                left: 32 * w,
+                right: 32 * w,
+              ),
+              decoration: BoxDecoration(
+                color: isNext ? AppTheme.blue : AppTheme.dark40,
+                borderRadius: BorderRadius.circular(12 * o),
+              ),
+              child: Center(
+                child: Text(
+                  "Войти",
+                  style: TextStyle(
+                    color: AppTheme.grey,
+                    fontSize: 16 * o,
+                    fontFamily: AppTheme.fontFamilyGilroy,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.normal,
+                    height: 19 / 16 * h,
+                  ),
                 ),
               ),
             ),
