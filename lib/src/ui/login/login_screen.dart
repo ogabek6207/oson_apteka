@@ -69,6 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: TextField(
                     controller: _controller,
                     decoration: InputDecoration(
+                      border: InputBorder.none,
                       labelText: "Введите логин",
                       labelStyle: TextStyle(
                         color: AppTheme.grey,
@@ -77,6 +78,32 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.normal,
                         fontStyle: FontStyle.normal,
                         height: 16 / 14 * h,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20 * h,
+                ),
+                Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width,
+                  margin: EdgeInsets.only(
+                    left: 32 * w,
+                    right: 32 * w,
+                  ),
+                  child: TextField(
+                    controller: _controller,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      labelText: "Пароль",
+                      labelStyle: TextStyle(
+                        color: AppTheme.grey,
+                        fontFamily: AppTheme.fontFamilyGilroy,
+                        fontSize: 16 * o,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.normal,
+                        height: 19 / 16 * h,
                       ),
                     ),
                   ),
