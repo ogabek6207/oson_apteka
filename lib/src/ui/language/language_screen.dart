@@ -10,6 +10,9 @@ class LanguageScreen extends StatefulWidget {
   _LanguageScreenState createState() => _LanguageScreenState();
 }
 
+bool uz = false;
+bool ru = false;
+
 class _LanguageScreenState extends State<LanguageScreen> {
   @override
   @override
@@ -17,51 +20,111 @@ class _LanguageScreenState extends State<LanguageScreen> {
     double h = Utils.windowHeight(context);
     double w = Utils.windowWidth(context);
     double o = (h + w) / 2;
+
     return Scaffold(
       backgroundColor: AppTheme.dark,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-
           const Spacer(),
-          Column(children: [
-            Image.asset(
-              "assets/images/language.png",
-              height: 205 * o,
-              width: 205 * o,
-            ),
-            Text(
-              "Упс! Слабый интернет",
-              style: TextStyle(
-                color: AppTheme.white,
-                fontSize: 24 * o,
-                fontWeight: FontWeight.bold,
-                fontFamily: AppTheme.fontFamilyGilroy,
-                fontStyle: FontStyle.normal,
-                height: 29 / 24 * h,
+          Column(
+            children: [
+              Image.asset(
+                "assets/images/language.png",
+                height: 205 * o,
+                width: 205 * o,
               ),
-            ),
-            SizedBox(height: 8*h,),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.only(left: 60*w, right: 60*w),
-              child: Center(
-                child: Text(
-                  "Проверьте свою сеть или перезагрузите эту страницу",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: AppTheme.white,
-                    fontSize: 16 * o,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: AppTheme.fontFamilyGilroy,
-                    fontStyle: FontStyle.normal,
-                    height:  1.3 * h,
-                  ),
+              SizedBox(
+                height: 16 * w,
+              ),
+              Text(
+                "Выберите язык",
+                style: TextStyle(
+                  color: AppTheme.white,
+                  fontSize: 24 * o,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: AppTheme.fontFamilyGilroy,
+                  fontStyle: FontStyle.normal,
+                  height: 29 / 24 * h,
                 ),
               ),
-            ),
-          ],),
+              SizedBox(
+                height: 8 * h,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.only(left: 48 * w, right: 48 * w),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          ru = false;
+                          uz = true;
+                        });
+                      },
+                      child: Container(
+                        height: 72 * h,
+                        width: 132 * w,
+                        decoration: BoxDecoration(
+                          color: AppTheme.dark34,
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppTheme.black.withOpacity(0.25),
+                              blurRadius: 12,
+                              spreadRadius: 0,
+                              offset: Offset(0, 8 * h),
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(16 * o),
+                          border: Border.all(
+                              color: uz ? AppTheme.blue : AppTheme.dark34,
+                              width: 2),
+                        ),
+                        child: Center(
+                          child: Image.asset("assets/images/uz.png"),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15 * w,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          ru = true;
+                          uz = false;
+                        });
+                      },
+                      child: Container(
+                        height: 72 * h,
+                        width: 132 * w,
+                        decoration: BoxDecoration(
+                          color: AppTheme.dark34,
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppTheme.black.withOpacity(0.25),
+                              blurRadius: 12,
+                              spreadRadius: 0,
+                              offset: Offset(0, 8 * h),
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(16 * o),
+                          border: Border.all(
+                              color: ru ? AppTheme.blue : AppTheme.dark34,
+                              width: 2),
+                        ),
+                        child: Center(
+                          child: Image.asset("assets/images/ru.png"),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
           const Spacer(),
           Container(
             height: 48 * h,
@@ -76,7 +139,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
             ),
             child: Center(
               child: Text(
-                "Перезагрузить страницу",
+                "Продлжить",
                 style: TextStyle(
                   color: AppTheme.white,
                   fontSize: 16 * o,
@@ -91,7 +154,6 @@ class _LanguageScreenState extends State<LanguageScreen> {
           SizedBox(
             height: (Platform.isIOS ? 44 : 32) * h,
           ),
-
         ],
       ),
     );
