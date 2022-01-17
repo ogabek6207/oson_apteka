@@ -11,7 +11,30 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _controllerLogin = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController();
+  bool isNext = false;
+
+  @override
+  void initState() {
+    _controllerLogin.addListener(() {
+      if (_controllerLogin.text.length >= 4 &&
+          _controllerPassword.text.length >= 4) {
+        if (!isNext) {
+          setState(() {
+            isNext = true;
+          });
+        }
+      } else {
+        if (isNext) {
+          setState(() {
+            isNext = false;
+          });
+        }
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +90,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     right: 32 * w,
                   ),
                   child: TextField(
-                    controller: _controller,
+                    controller: _controllerLogin,
+                    cursorColor: AppTheme.white,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       labelText: "Введите логин",
@@ -93,7 +117,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     right: 32 * w,
                   ),
                   child: TextField(
-                    controller: _controller,
+                    controller: _controllerPassword,
+                    cursorColor: AppTheme.white,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       labelText: "Пароль",
@@ -119,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
               right: 32 * w,
             ),
             decoration: BoxDecoration(
-              color: AppTheme.dark40,
+              color: isNext ? AppTheme.blue : AppTheme.dark40,
               borderRadius: BorderRadius.circular(12 * o),
             ),
             child: Center(
@@ -131,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontFamily: AppTheme.fontFamilyGilroy,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal,
-                  height: 19 / 16* h,
+                  height: 19 / 16 * h,
                 ),
               ),
             ),
