@@ -75,7 +75,7 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: _selectedIndex == 2
                 ? SvgPicture.asset(
-              "assets/menu/select_notification.svg",
+              "assets/menu/select_plan_history.svg",
 
             )
                 : SvgPicture.asset(
@@ -85,7 +85,7 @@ class _MainScreenState extends State<MainScreen> {
             backgroundColor: AppTheme.black,
           ),
           BottomNavigationBarItem(
-            icon: _selectedIndex == 2
+            icon: _selectedIndex == 3
                 ? SvgPicture.asset(
               "assets/menu/select_notification.svg",
 
@@ -97,7 +97,7 @@ class _MainScreenState extends State<MainScreen> {
             backgroundColor: AppTheme.blue,
           ),
           BottomNavigationBarItem(
-            icon: _selectedIndex == 2
+            icon: _selectedIndex == 4
                 ? SvgPicture.asset(
               "assets/menu/select_profile.svg",
 
