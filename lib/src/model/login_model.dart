@@ -4,13 +4,13 @@
 
 import 'dart:convert';
 
-AboutUsModel aboutUsModelFromJson(String str) =>
-    AboutUsModel.fromJson(json.decode(str));
+LoginModel aboutUsModelFromJson(String str) =>
+    LoginModel.fromJson(json.decode(str));
 
-String aboutUsModelToJson(AboutUsModel data) => json.encode(data.toJson());
+String aboutUsModelToJson(LoginModel data) => json.encode(data.toJson());
 
-class AboutUsModel {
-  AboutUsModel({
+class LoginModel {
+  LoginModel({
     required this.name,
     required this.description,
     required this.renders,
@@ -24,7 +24,7 @@ class AboutUsModel {
   List<String> parses;
   Actions actions;
 
-  factory AboutUsModel.fromJson(Map<String, dynamic> json) => AboutUsModel(
+  factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
         name: json["name"] ?? "",
         description: json["description"] ?? "",
         renders: List<String>.from(json["renders"].map((x) => x)),

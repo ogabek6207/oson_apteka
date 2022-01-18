@@ -1,9 +1,13 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:oson_apteka/src/appTheme/app_theme.dart';
+import 'package:oson_apteka/src/model/login_model.dart';
+import 'package:oson_apteka/src/repository/repository.dart';
 import 'package:oson_apteka/src/ui/error/error_screen.dart';
 import 'package:oson_apteka/src/utils/utils.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -14,8 +18,10 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _controllerLogin = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
+  final Repository _repository = Repository();
   bool isNext = false;
-bool eye = false;
+  bool eye = false;
+  bool _loading = false;
   @override
   void initState() {
     _controllerLogin.addListener(() {
@@ -93,12 +99,11 @@ bool eye = false;
                   child: TextField(
                     style: TextStyle(
                       color: AppTheme.white,
-                      fontSize: 16*o,
+                      fontSize: 16 * o,
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.normal,
                     ),
                     controller: _controllerLogin,
-                 
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       labelText: "Введите логин",
@@ -129,27 +134,24 @@ bool eye = false;
                         child: TextField(
                           obscureText: eye,
                           controller: _controllerPassword,
-                         style: TextStyle(
-                           color: AppTheme.white,
-                           fontSize: 16*o,
-                           fontWeight: FontWeight.bold,
-                           fontStyle: FontStyle.normal,
-                         ),
+                          style: TextStyle(
+                            color: AppTheme.white,
+                            fontSize: 16 * o,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.normal,
+                          ),
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             suffixIcon: GestureDetector(
-
-                                onTap: (){
-                                  setState(() {
-                                    eye = !eye;
-                                  });
-                                },
-
-                                child: eye ? SvgPicture.asset("assets/icons/eye.svg")
-                            : SvgPicture.asset("assets/icons/eye_hide.svg"),
-
-
-
+                              onTap: () {
+                                setState(() {
+                                  eye = !eye;
+                                });
+                              },
+                              child: eye
+                                  ? SvgPicture.asset("assets/icons/eye.svg")
+                                  : SvgPicture.asset(
+                                      "assets/icons/eye_hide.svg"),
                             ),
                             labelText: "Пароль",
                             labelStyle: TextStyle(
@@ -163,10 +165,8 @@ bool eye = false;
                           ),
                         ),
                       ),
-
                     ],
                   ),
-
                 ),
               ],
             ),
@@ -214,5 +214,29 @@ bool eye = false;
         ],
       ),
     );
+  }
+  Future<void> sendData(String login) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(
+      "phoneNumber",
+      _controllerLogin.text,
+    );
+    var info = await _repository.sendLogin(login);
+    setState(() {
+      _loading = true;
+    });
+    if (info.isSucces) {
+      LoginModel loginModel = LoginModel.fromJson(info.result);
+      setState(() {
+        _loading = false;
+      });
+
+    } else {
+      setState(() {
+        _loading = false;
+      });
+
+      ///error
+    }
   }
 }
