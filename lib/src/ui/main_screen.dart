@@ -55,57 +55,57 @@ class _MainScreenState extends State<MainScreen> {
         items: [
           BottomNavigationBarItem(
             icon: _selectedIndex == 0
-                ? SvgPicture.asset("assets/menu/home.svg")
+                ? SvgPicture.asset("assets/menu/select_home.svg")
                 : SvgPicture.asset("assets/menu/home.svg"),
-            label: "home",
+            label: "",
             backgroundColor: AppTheme.white,
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 1
                 ? SvgPicture.asset(
-              "assets/menu/plan.svg",
-              color: AppTheme.blue,
+              "assets/menu/select_plan.svg",
+
             )
                 : SvgPicture.asset(
               "assets/menu/plan.svg",
             ),
-            label: "Tasks",
+            label: "",
             backgroundColor: AppTheme.black,
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 2
                 ? SvgPicture.asset(
-              "assets/menu/plan_history.svg",
-              color: AppTheme.blue,
+              "assets/menu/select_notification.svg",
+
             )
                 : SvgPicture.asset(
               "assets/menu/plan_history.svg",
             ),
-            label: "Alerts",
+            label: "",
             backgroundColor: AppTheme.black,
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 2
                 ? SvgPicture.asset(
-              "assets/menu/notification.svg",
-              color: AppTheme.blue,
+              "assets/menu/select_notification.svg",
+
             )
                 : SvgPicture.asset(
               "assets/menu/notification.svg",
             ),
-            label: "Settings",
+            label: "",
             backgroundColor: AppTheme.blue,
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 2
                 ? SvgPicture.asset(
-              "assets/menu/profile.svg",
-              color: AppTheme.blue,
+              "assets/menu/select_profile.svg",
+
             )
                 : SvgPicture.asset(
               "assets/menu/profile.svg",
             ),
-            label: "Settings",
+            label: "",
             backgroundColor: AppTheme.blue,
           ),
         ],
