@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:oson_apteka/src/appTheme/app_theme.dart';
 import 'package:oson_apteka/src/model/login_model.dart';
-import 'package:oson_apteka/src/repository/repository.dart';
 import 'package:oson_apteka/src/ui/error/error_screen.dart';
 import 'package:oson_apteka/src/utils/utils.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,7 +17,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _controllerLogin = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
-  final Repository _repository = Repository();
+  // final Repository _repository = Repository();
   bool isNext = false;
   bool eye = false;
   bool _loading = false;
@@ -215,28 +214,28 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-  Future<void> sendData(String login) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(
-      "phoneNumber",
-      _controllerLogin.text,
-    );
-    var info = await _repository.sendLogin(login);
-    setState(() {
-      _loading = true;
-    });
-    if (info.isSucces) {
-      LoginModel loginModel = LoginModel.fromJson(info.result);
-      setState(() {
-        _loading = false;
-      });
-
-    } else {
-      setState(() {
-        _loading = false;
-      });
-
-      ///error
-    }
-  }
+  // Future<void> sendData(String login) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setString(
+  //     "phoneNumber",
+  //     _controllerLogin.text,
+  //   );
+  //   var info = await _repository.sendLogin(login);
+  //   setState(() {
+  //     _loading = true;
+  //   });
+  //   if (info.isSucces) {
+  //     LoginModel loginModel = LoginModel.fromJson(info.result);
+  //     setState(() {
+  //       _loading = false;
+  //     });
+  //
+  //   } else {
+  //     setState(() {
+  //       _loading = false;
+  //     });
+  //
+  //     ///error
+  //   }
+  // }
 }

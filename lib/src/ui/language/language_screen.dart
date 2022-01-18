@@ -126,27 +126,32 @@ class _LanguageScreenState extends State<LanguageScreen> {
             ],
           ),
           const Spacer(),
-          Container(
-            height: 48 * h,
-            width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.only(
-              left: 32 * w,
-              right: 32 * w,
-            ),
-            decoration: BoxDecoration(
-              color: AppTheme.blue,
-              borderRadius: BorderRadius.circular(12 * o),
-            ),
-            child: Center(
-              child: Text(
-                "Продлжить",
-                style: TextStyle(
-                  color: AppTheme.white,
-                  fontSize: 16 * o,
-                  fontFamily: AppTheme.fontFamilyGilroy,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.normal,
-                  height: 19 / 16 * h,
+          GestureDetector(
+            onTap: (){
+
+            },
+            child: Container(
+              height: 48 * h,
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.only(
+                left: 32 * w,
+                right: 32 * w,
+              ),
+              decoration: BoxDecoration(
+                color: AppTheme.blue,
+                borderRadius: BorderRadius.circular(12 * o),
+              ),
+              child: Center(
+                child: Text(
+                  "Продлжить",
+                  style: TextStyle(
+                    color: AppTheme.white,
+                    fontSize: 16 * o,
+                    fontFamily: AppTheme.fontFamilyGilroy,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.normal,
+                    height: 19 / 16 * h,
+                  ),
                 ),
               ),
             ),
