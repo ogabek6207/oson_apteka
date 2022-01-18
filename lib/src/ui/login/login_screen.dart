@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:oson_apteka/src/appTheme/app_theme.dart';
 import 'package:oson_apteka/src/ui/error/error_screen.dart';
 import 'package:oson_apteka/src/utils/utils.dart';
-
+import 'package:flutter_svg/svg.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -117,22 +117,30 @@ class _LoginScreenState extends State<LoginScreen> {
                     left: 32 * w,
                     right: 32 * w,
                   ),
-                  child: TextField(
-                    controller: _controllerPassword,
-                    cursorColor: AppTheme.white,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      labelText: "Пароль",
-                      labelStyle: TextStyle(
-                        color: AppTheme.grey,
-                        fontFamily: AppTheme.fontFamilyGilroy,
-                        fontSize: 16 * o,
-                        fontWeight: FontWeight.w600,
-                        fontStyle: FontStyle.normal,
-                        height: 19 / 16 * h,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          controller: _controllerPassword,
+                          cursorColor: AppTheme.white,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            labelText: "Пароль",
+                            labelStyle: TextStyle(
+                              color: AppTheme.grey,
+                              fontFamily: AppTheme.fontFamilyGilroy,
+                              fontSize: 16 * o,
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FontStyle.normal,
+                              height: 19 / 16 * h,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
+
+                    ],
                   ),
+
                 ),
               ],
             ),
