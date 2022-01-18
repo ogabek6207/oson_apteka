@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oson_apteka/src/ui/login/login_screen.dart';
+import 'package:oson_apteka/src/ui/main_screen.dart';
 import 'package:oson_apteka/src/ui/splash/splash_screen.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(),
+      home: const MainScreen(),
     );
   }
 }

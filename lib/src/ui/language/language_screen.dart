@@ -22,7 +22,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
     double o = (h + w) / 2;
 
     return Scaffold(
-      backgroundColor: AppTheme.dark,
+      backgroundColor: AppTheme.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -68,10 +68,10 @@ class _LanguageScreenState extends State<LanguageScreen> {
                         height: 72 * h,
                         width: 132 * w,
                         decoration: BoxDecoration(
-                          color: AppTheme.dark34,
+                          color: AppTheme.white,
                           boxShadow: [
                             BoxShadow(
-                              color: AppTheme.black.withOpacity(0.25),
+                              color: AppTheme.shadow.withOpacity(0.25),
                               blurRadius: 12,
                               spreadRadius: 0,
                               offset: Offset(0, 8 * h),
@@ -79,7 +79,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                           ],
                           borderRadius: BorderRadius.circular(16 * o),
                           border: Border.all(
-                              color: uz ? AppTheme.blue : AppTheme.dark34,
+                              color: uz ? AppTheme.blue : AppTheme.shadow,
                               width: 2),
                         ),
                         child: Center(
@@ -101,18 +101,18 @@ class _LanguageScreenState extends State<LanguageScreen> {
                         height: 72 * h,
                         width: 132 * w,
                         decoration: BoxDecoration(
-                          color: AppTheme.dark34,
+                          color: AppTheme.white,
                           boxShadow: [
                             BoxShadow(
-                              color: AppTheme.black.withOpacity(0.25),
+                              color: AppTheme.shadow.withOpacity(0.05),
                               blurRadius: 12,
                               spreadRadius: 0,
-                              offset: Offset(0, 8 * h),
+                              offset: const Offset(0, 8),
                             ),
                           ],
                           borderRadius: BorderRadius.circular(16 * o),
                           border: Border.all(
-                              color: ru ? AppTheme.blue : AppTheme.dark34,
+                              color: ru ? AppTheme.blue : AppTheme.shadow,
                               width: 2),
                         ),
                         child: Center(

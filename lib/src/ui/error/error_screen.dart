@@ -19,7 +19,7 @@ class _ErrorScreenState extends State<ErrorScreen> {
     double w = Utils.windowWidth(context);
     double o = (h + w) / 2;
     return Scaffold(
-      backgroundColor: AppTheme.dark,
+      backgroundColor: AppTheme.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -36,7 +36,7 @@ class _ErrorScreenState extends State<ErrorScreen> {
               Text(
                 "Упс! Слабый интернет",
                 style: TextStyle(
-                  color: AppTheme.white,
+                  color: AppTheme.dark,
                   fontSize: 24 * o,
                   fontWeight: FontWeight.bold,
                   fontFamily: AppTheme.fontFamilyGilroy,
@@ -55,12 +55,12 @@ class _ErrorScreenState extends State<ErrorScreen> {
                     "Проверьте свою сеть или перезагрузите эту страницу",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: AppTheme.white,
+                      color: AppTheme.dark,
                       fontSize: 16 * o,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       fontFamily: AppTheme.fontFamilyGilroy,
                       fontStyle: FontStyle.normal,
-                      height: 1.3 * h,
+                      height: 1.4 * h,
                     ),
                   ),
                 ),
