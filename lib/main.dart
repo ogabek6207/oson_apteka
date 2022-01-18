@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
       ),
-      home: const MainScreen(),
+      home: const LoginScreen(),
     );
   }
 }

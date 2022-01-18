@@ -15,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _controllerLogin = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
   bool isNext = false;
-
+bool eye = false;
   @override
   void initState() {
     _controllerLogin.addListener(() {
@@ -91,8 +91,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     right: 32 * w,
                   ),
                   child: TextField(
+                    style: TextStyle(
+                      color: AppTheme.white,
+                      fontSize: 16*o,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.normal,
+                    ),
                     controller: _controllerLogin,
-                    cursorColor: AppTheme.white,
+                 
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       labelText: "Введите логин",
@@ -121,10 +127,30 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Expanded(
                         child: TextField(
+                          obscureText: eye,
                           controller: _controllerPassword,
-                          cursorColor: AppTheme.white,
+                         style: TextStyle(
+                           color: AppTheme.white,
+                           fontSize: 16*o,
+                           fontWeight: FontWeight.bold,
+                           fontStyle: FontStyle.normal,
+                         ),
                           decoration: InputDecoration(
                             border: InputBorder.none,
+                            suffixIcon: GestureDetector(
+
+                                onTap: (){
+                                  setState(() {
+                                    eye = !eye;
+                                  });
+                                },
+
+                                child: eye ? SvgPicture.asset("assets/icons/eye.svg")
+                            : SvgPicture.asset("assets/icons/eye_hide.svg"),
+
+
+
+                            ),
                             labelText: "Пароль",
                             labelStyle: TextStyle(
                               color: AppTheme.grey,
