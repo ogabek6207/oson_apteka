@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:oson_apteka/src/appTheme/app_theme.dart';
 import 'package:oson_apteka/src/utils/utils.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -14,8 +15,8 @@ class PlanScreen extends StatefulWidget {
 }
 
 class _PlanScreenState extends State<PlanScreen> {
+  YandexMap _map = YandexMap();
   bool _switchValue = true;
-  var status = Permission.location.status;
 
   @override
   Widget build(BuildContext context) {
@@ -82,10 +83,13 @@ class _PlanScreenState extends State<PlanScreen> {
                     ),
                     const Spacer(),
                     GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          status;
-                        });
+                      onTap: () async {
+                        if (await Permission.location.request().isGranted) {
+                          Position position =
+                              await Geolocator.getCurrentPosition(
+                                  desiredAccuracy: LocationAccuracy.high);
+                          print(position);
+                        }
                       },
                       child: SvgPicture.asset(
                         "assets/icons/gps.svg",
@@ -93,7 +97,7 @@ class _PlanScreenState extends State<PlanScreen> {
                     ),
                   ],
                 ),
-              ),
+              )
             ],
           ),
         ],
