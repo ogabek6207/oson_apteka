@@ -1,0 +1,13 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle r="20" transform="matrix(-1 0 0 1 20 20)" fill="#5B73E8"/>
+<path d="M11.0925 17.4042H28.9165" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.442 21.3097H24.4512" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20.0047 21.3097H20.014" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.5579 21.3097H15.5672" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.442 25.1962H24.4512" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20.0047 25.1962H20.014" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.5579 25.1962H15.5672" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.0438 10V13.2908" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.9654 10V13.2908" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M24.2383 11.5792H15.771C12.8343 11.5792 11 13.2152 11 16.2222V25.2719C11 28.3263 12.8343 30 15.771 30H24.229C27.175 30 29 28.3546 29 25.3475V16.2222C29.0092 13.2152 27.1842 11.5792 24.2383 11.5792Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

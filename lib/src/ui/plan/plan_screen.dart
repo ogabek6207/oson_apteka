@@ -15,7 +15,8 @@ class PlanScreen extends StatefulWidget {
 
 class _PlanScreenState extends State<PlanScreen> {
   bool _switchValue = true;
-  var status =  Permission.location.status;
+  var status = Permission.location.status;
+
   @override
   Widget build(BuildContext context) {
     double h = Utils.windowHeight(context);
@@ -80,8 +81,15 @@ class _PlanScreenState extends State<PlanScreen> {
                       "assets/icons/add.svg",
                     ),
                     const Spacer(),
-                    SvgPicture.asset(
-                      "assets/icons/gps.svg",
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          status;
+                        });
+                      },
+                      child: SvgPicture.asset(
+                        "assets/icons/gps.svg",
+                      ),
                     ),
                   ],
                 ),
