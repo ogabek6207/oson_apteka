@@ -1,11 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:oson_apteka/src/appTheme/app_theme.dart';
-import 'package:oson_apteka/src/model/login_model.dart';
 import 'package:oson_apteka/src/ui/error/error_screen.dart';
 import 'package:oson_apteka/src/utils/utils.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -148,9 +146,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                 });
                               },
                               child: eye
-                                  ? SvgPicture.asset("assets/icons/eye.svg")
+                                  ? SvgPicture.asset("assets/icons/eye.svg",
+                              height: 24*o,
+                                width: 24*o,
+                              )
                                   : SvgPicture.asset(
-                                      "assets/icons/eye_hide.svg"),
+                                      "assets/icons/eye_hide.svg",
+                                height: 24*o,
+                                width: 24*o,
+                              ),
                             ),
                             labelText: "Пароль",
                             labelStyle: TextStyle(

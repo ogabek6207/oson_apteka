@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oson_apteka/src/appTheme/app_theme.dart';
+import 'package:oson_apteka/src/ui/main_screen.dart';
 import 'package:oson_apteka/src/utils/utils.dart';
 
 class LanguageScreen extends StatefulWidget {
@@ -127,8 +129,10 @@ class _LanguageScreenState extends State<LanguageScreen> {
           ),
           const Spacer(),
           GestureDetector(
-            onTap: (){
-
+            onTap: () {
+              Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context){
+                  return const MainScreen();
+              },),);
             },
             child: Container(
               height: 48 * h,

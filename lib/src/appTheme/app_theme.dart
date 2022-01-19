@@ -9,6 +9,7 @@ class AppTheme {
   static Color dark34 = const Color(0xFF262A34);
   static Color black = const Color(0xFF000000);
   static Color shadow = const Color(0xFF999CAD);
+  static Color dark32 = const Color(0xFF200E32);
 
 
 
