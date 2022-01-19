@@ -17,6 +17,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   syncfusion_flutter_charts: ^19.4.43
   yandex_mapkit: ^2.0.1
+  permission_handler: ^8.3.0
 
 dev_dependencies:
   flutter_test:
