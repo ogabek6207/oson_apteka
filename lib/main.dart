@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:oson_apteka/src/dialog/center_dialog.dart';
+import 'package:oson_apteka/src/examle/calendar.dart';
 import 'package:oson_apteka/src/examle/example.dart';
 import 'package:oson_apteka/src/examle/vebview.dart';
+import 'package:oson_apteka/src/ui/home/home_screen.dart';
 import 'package:oson_apteka/src/ui/main_screen.dart';
 
 void main() {
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
       ),
-      home: const MainScreen(),
+      home: const HomeScreen(),
     );
   }
 }

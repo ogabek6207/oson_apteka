@@ -33,11 +33,16 @@ class _PlanHistoryScreenState extends State<PlanHistoryScreen> {
           ),
         ),
         actions: [
-          Container(
-              margin: EdgeInsets.only(right: 16 * w),
-              child: SvgPicture.asset(
-                "assets/icons/calendar.svg",
-              )),
+          GestureDetector(
+            onTap: (){
+
+            },
+            child: Container(
+                margin: EdgeInsets.only(right: 16 * w),
+                child: SvgPicture.asset(
+                  "assets/icons/calendar.svg",
+                )),
+          ),
         ],
       ),
     );

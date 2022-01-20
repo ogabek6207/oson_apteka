@@ -21,6 +21,8 @@ class _PlanScreenState extends State<PlanScreen> {
   Completer<YandexMapController> _completer = Completer();
   final List<MapObject> mapObjects = [];
   bool _switchValue = true;
+  Position _position = Position(longitude: 12.2, latitude: 12.2, timestamp: DateTime.now(), accuracy: 12.2, altitude: 12.1, heading: 12.2, speed: 12, speedAccuracy: 12);
+  Point myPoint = Point(latitude: 123.43, longitude: 123.8);
   final MapObjectId clusterizedPlacemarkCollectionId = const MapObjectId('clusterized_placemark_collection');
   @override
   Widget build(BuildContext context) {
@@ -97,6 +99,8 @@ class _PlanScreenState extends State<PlanScreen> {
                                   desiredAccuracy: LocationAccuracy.high);
                           print(position.longitude);
                           print(position.latitude);
+                          _position.latitude;
+                          print(_position.latitude);
                         }
                       },
                       child: SvgPicture.asset(
@@ -109,7 +113,7 @@ class _PlanScreenState extends State<PlanScreen> {
               ControlButton(
                   onPressed: () async {
                     setState(() {
-                      mapObjects.removeWhere((el) => el.mapId == clusterizedPlacemarkCollectionId);
+                      _position;
                     });
                   },
                   title: 'Remove'

@@ -21,6 +21,7 @@ class _PageScreenState extends State<PageScreen> {
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+
           FloatingActionButton(
               child: Icon(Icons.add),
               onPressed: _zoomIn),
