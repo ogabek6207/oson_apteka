@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
-import 'package:oson_apteka/src/ui/login/login_screen.dart';
+import 'package:oson_apteka/src/examle/vebview.dart';
+import 'package:oson_apteka/src/ui/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(),
+      home: const ClusterizedPlacemarkCollectionPage(),
     );
   }
 }

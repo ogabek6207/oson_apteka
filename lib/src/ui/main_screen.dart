@@ -63,48 +63,44 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: _selectedIndex == 1
                 ? SvgPicture.asset(
-              "assets/menu/select_plan.svg",
-
-            )
+                    "assets/menu/select_plan.svg",
+                  )
                 : SvgPicture.asset(
-              "assets/menu/plan.svg",
-            ),
+                    "assets/menu/plan.svg",
+                  ),
             label: "",
             backgroundColor: AppTheme.black,
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 2
                 ? SvgPicture.asset(
-              "assets/menu/select_plan_history.svg",
-
-            )
+                    "assets/menu/select_plan_history.svg",
+                  )
                 : SvgPicture.asset(
-              "assets/menu/plan_history.svg",
-            ),
+                    "assets/menu/plan_history.svg",
+                  ),
             label: "",
             backgroundColor: AppTheme.black,
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 3
                 ? SvgPicture.asset(
-              "assets/menu/select_notification.svg",
-
-            )
+                    "assets/menu/select_notification.svg",
+                  )
                 : SvgPicture.asset(
-              "assets/menu/notification.svg",
-            ),
+                    "assets/menu/notification.svg",
+                  ),
             label: "",
             backgroundColor: AppTheme.blue,
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 4
                 ? SvgPicture.asset(
-              "assets/menu/select_profile.svg",
-
-            )
+                    "assets/menu/select_profile.svg",
+                  )
                 : SvgPicture.asset(
-              "assets/menu/profile.svg",
-            ),
+                    "assets/menu/profile.svg",
+                  ),
             label: "",
             backgroundColor: AppTheme.blue,
           ),

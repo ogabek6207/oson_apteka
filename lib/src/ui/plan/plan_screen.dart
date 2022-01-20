@@ -15,7 +15,8 @@ class PlanScreen extends StatefulWidget {
 }
 
 class _PlanScreenState extends State<PlanScreen> {
-  YandexMap _map = YandexMap();
+  YandexMapController? controller;
+
   bool _switchValue = true;
 
   @override
@@ -62,7 +63,10 @@ class _PlanScreenState extends State<PlanScreen> {
                     ],
                   )),
               const Expanded(
-                child: YandexMap(),
+                child: YandexMap(
+                  mapObjects: [],
+
+                ),
               ),
             ],
           ),
