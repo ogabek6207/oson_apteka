@@ -18,12 +18,10 @@ class PlanScreen extends StatefulWidget {
 }
 
 class _PlanScreenState extends State<PlanScreen> {
-  Completer<YandexMapController> _completer = Completer();
-  final List<MapObject> mapObjects = [];
-  bool _switchValue = true;
-  Position _position = Position(longitude: 12.2, latitude: 12.2, timestamp: DateTime.now(), accuracy: 12.2, altitude: 12.1, heading: 12.2, speed: 12, speedAccuracy: 12);
-  Point myPoint = Point(latitude: 123.43, longitude: 123.8);
-  final MapObjectId clusterizedPlacemarkCollectionId = const MapObjectId('clusterized_placemark_collection');
+  final animation =
+  const MapAnimation(type: MapAnimationType.smooth, duration: 2.0);
+  late YandexMapController controller;
+
   @override
   Widget build(BuildContext context) {
     double h = Utils.windowHeight(context);
@@ -57,19 +55,25 @@ class _PlanScreenState extends State<PlanScreen> {
                         ),
                       ),
                       const Spacer(),
-                      CupertinoSwitch(
-                        value: _switchValue,
-                        onChanged: (value) {
-                          setState(() {
-                            _switchValue = value;
-                          });
-                        },
-                      ),
+
                     ],
                   )),
-              const Expanded(
+               Expanded(
                 child: YandexMap(
-                  // onMapCreated: _onMapCreated,
+                  onMapCreated: (YandexMapController yandexMapController) async {
+                    controller = yandexMapController;
+                    await controller.moveCamera(
+                      CameraUpdate.newCameraPosition(
+                        const CameraPosition(
+                          target: Point(
+                            latitude: 41.311081,
+                            longitude: 69.240562,
+                          ),
+                        ),
+                      ),
+                      animation: animation,
+                    );
+                  },
                 ),
               ),
             ],
@@ -99,8 +103,7 @@ class _PlanScreenState extends State<PlanScreen> {
                                   desiredAccuracy: LocationAccuracy.high);
                           print(position.longitude);
                           print(position.latitude);
-                          _position.latitude;
-                          print(_position.latitude);
+
                         }
                       },
                       child: SvgPicture.asset(
@@ -113,7 +116,7 @@ class _PlanScreenState extends State<PlanScreen> {
               ControlButton(
                   onPressed: () async {
                     setState(() {
-                      _position;
+                      ;
                     });
                   },
                   title: 'Remove'
@@ -126,6 +129,6 @@ class _PlanScreenState extends State<PlanScreen> {
     );
   }
   void _onMapCreated(YandexMapController controller) {
-    _completer.complete(controller);
+
   }
 }
