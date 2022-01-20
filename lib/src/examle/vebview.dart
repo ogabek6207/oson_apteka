@@ -117,7 +117,7 @@ class _ClusterizedPlacemarkCollectionExampleState extends State<_ClusterizedPlac
                                     placemarks: [
                                       Placemark(
                                           mapId: const MapObjectId('placemark_1'),
-                                          point: const Point(latitude: 55.756, longitude: 37.618),
+                                          point: const Point(latitude: 100.756, longitude: 37.618),
                                           consumeTapEvents: true,
                                           onTap: (Placemark self, Point point) => print('Tapped placemark at $point'),
                                           icon: PlacemarkIcon.single(PlacemarkIconStyle(
@@ -192,14 +192,14 @@ class _ClusterizedPlacemarkCollectionExampleState extends State<_ClusterizedPlac
                                 },
                                 title: 'Update'
                             ),
-                            ControlButton(
-                                onPressed: () async {
-                                  setState(() {
-                                    mapObjects.removeWhere((el) => el.mapId == clusterizedPlacemarkCollectionId);
-                                  });
-                                },
-                                title: 'Remove'
-                            )
+                              ControlButton(
+                                  onPressed: () async {
+                                    setState(() {
+                                      mapObjects.removeWhere((el) => el.mapId == clusterizedPlacemarkCollectionId);
+                                    });
+                                  },
+                                  title: 'Remove'
+                              )
                           ],
                         ),
                         Text('Set of $kPlacemarkCount placemarks'),

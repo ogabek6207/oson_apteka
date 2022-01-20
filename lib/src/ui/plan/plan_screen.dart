@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:oson_apteka/src/appTheme/app_theme.dart';
+import 'package:oson_apteka/src/examle/shvbc.dart';
 import 'package:oson_apteka/src/utils/utils.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
@@ -15,10 +18,10 @@ class PlanScreen extends StatefulWidget {
 }
 
 class _PlanScreenState extends State<PlanScreen> {
-  YandexMapController? controller;
-
+  Completer<YandexMapController> _completer = Completer();
+  final List<MapObject> mapObjects = [];
   bool _switchValue = true;
-
+  final MapObjectId clusterizedPlacemarkCollectionId = const MapObjectId('clusterized_placemark_collection');
   @override
   Widget build(BuildContext context) {
     double h = Utils.windowHeight(context);
@@ -64,14 +67,14 @@ class _PlanScreenState extends State<PlanScreen> {
                   )),
               const Expanded(
                 child: YandexMap(
-                  mapObjects: [],
-
+                  // onMapCreated: _onMapCreated,
                 ),
               ),
             ],
           ),
           Column(
             children: [
+
               const Spacer(),
               Container(
                 margin: EdgeInsets.only(bottom: 24 * h, top: 100 * h),
@@ -92,7 +95,8 @@ class _PlanScreenState extends State<PlanScreen> {
                           Position position =
                               await Geolocator.getCurrentPosition(
                                   desiredAccuracy: LocationAccuracy.high);
-                          print(position);
+                          print(position.longitude);
+                          print(position.latitude);
                         }
                       },
                       child: SvgPicture.asset(
@@ -101,11 +105,23 @@ class _PlanScreenState extends State<PlanScreen> {
                     ),
                   ],
                 ),
-              )
+              ),
+              ControlButton(
+                  onPressed: () async {
+                    setState(() {
+                      mapObjects.removeWhere((el) => el.mapId == clusterizedPlacemarkCollectionId);
+                    });
+                  },
+                  title: 'Remove'
+              ),
             ],
           ),
+
         ],
       ),
     );
+  }
+  void _onMapCreated(YandexMapController controller) {
+    _completer.complete(controller);
   }
 }

@@ -1,72 +1,52 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
+import 'package:yandex_mapkit/yandex_mapkit.dart';
 
-void main() {
-  return runApp(_ChartApp());
-}
-
-class _ChartApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
-  MyHomePage({Key? key}) : super(key: key);
+class PageScreen extends StatefulWidget {
+  const PageScreen({Key? key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _PageScreenState createState() => _PageScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _PageScreenState extends State<PageScreen> {
+  Completer<YandexMapController> _completer = Completer();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Syncfusion Flutter chart'),
-        ),
-        body: Column(children: [
-          //Initialize the chart widget
-          SfCartesianChart(
-              primaryXAxis: CategoryAxis(),
-              // Chart title
-              title: ChartTitle(text: 'Half yearly sales analysis'),
-              // Enable legend
-              legend: Legend(isVisible: true),
-              // Enable tooltip
-              tooltipBehavior: TooltipBehavior(enable: true),
-              series: const <ChartSeries<_SalesData, String>>[]),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              //Initialize the spark charts widget
-              child: SfSparkLineChart.custom(
-                //Enable the trackball
-                trackball: const SparkChartTrackball(
-                    activationMode: SparkChartActivationMode.tap),
-                //Enable marker
-                marker: const SparkChartMarker(
-                    displayMode: SparkChartMarkerDisplayMode.all),
-                //Enable data label
-                labelDisplayMode: SparkChartLabelDisplayMode.all,
+      body: YandexMap(
+        onMapCreated: _onMapCreated,
+      ),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: _zoomIn),
+          SizedBox(height: 16,),
+          FloatingActionButton(
 
-                dataCount: 5,
-              ),
-            ),
-          )
-        ]));
+              child: Icon(Icons.remove),
+              onPressed: _zoomOut)
+        ],
+      ),
+    );
   }
-}
 
-class _SalesData {
-  _SalesData(this.year, this.sales);
+  void _onMapCreated(YandexMapController controller) {
+    _completer.complete(controller);
 
-  final String year;
-  final double sales;
+  }
+
+  Future<void> _zoomIn() async {
+    YandexMapController controller = await _completer.future;
+    controller.getMaxZoom();
+
+  }
+
+  Future<void> _zoomOut() async {
+    YandexMapController controller = await _completer.future;
+    controller.getMaxZoom();
+  }
 }
